@@ -1,0 +1,170 @@
+body {
+  background: #ffe6f0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  padding: 2rem;
+  color: #444;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cake {
+  position: relative;
+  width: 200px;
+  height: 120px;
+  background: #f0f2d3;
+  margin: 8rem auto 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 8px #d94f8c;
+}
+
+.layer {
+  position: absolute;
+  bottom: -20px;
+  width: 200px;
+  height: 20px;
+  background: #cc3366;
+  border-radius: 0 0 10px 10px;
+}
+
+.candles {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+}
+
+.candle {
+  width: 10px;
+  height: 40px;
+  background: #ffcc00;
+  border-radius: 2px;
+  position: relative;
+}
+
+.chocolate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #cf6e29;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 1;
+
+  /* Wavy shape as mask */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C20,30 40,-10 60,10 C80,30 100,-10 120,10 C140,30 160,-10 180,10 C190,20 200,0 200,0 L200,60 L0,60 Z" fill="white"/></svg>');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-position: top;
+  -webkit-transform: scaleY(-1);  /* ⬅️ FLIP vertically */
+
+  mask-image: url('data:image/svg+xml;utf8,<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C20,30 40,-10 60,10 C80,30 100,-10 120,10 C140,30 160,-10 180,10 C190,20 200,0 200,0 L200,60 L0,60 Z" fill="white"/></svg>');
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: top;
+  transform: scaleY(-1);  /* ⬅️ FLIP vertically */
+}
+#playSongButton {
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff66a3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#playSongButton:hover {
+  background: #e05591;
+}
+
+
+
+
+.flame {
+  width: 8px;
+  height: 18px;
+  background: radial-gradient(ellipse at center, #ffd700 0%, #ff6600 80%, transparent 100%);
+  border-radius: 50% 50% 30% 30%;
+  position: absolute;
+  top: -22px;
+  left: 1px;
+  animation: flicker 0.2s infinite;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.7),
+              0 0 20px rgba(255, 153, 0, 0.5),
+              0 0 30px rgba(255, 153, 0, 0.3);
+}
+
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+  25% { transform: scale(1.1) rotate(-2deg); opacity: 0.85; }
+  50% { transform: scale(1) rotate(1deg); opacity: 1; }
+  75% { transform: scale(1.05) rotate(-1deg); opacity: 0.9; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff66a3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #e05591;
+}
+
+#message {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #99004d;
+}
+.flower {
+  position: absolute;
+  font-size: 28px;
+  animation: fall 5s linear forwards;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.9;
+  transform: rotate(0deg);
+  animation: fall 5s ease-in forwards, spin 5s linear infinite;
+}
+@keyframes fall {
+  0% {
+    top: -30px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
